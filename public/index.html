@@ -172,48 +172,47 @@ BAC Analysis
 			</section>
 
 			<section>
-	<div id="caloriesConsumed">
+	<form id="caloriesConsumed">
+        <div id="totalCalories" style="color: purple; text-align: center; font-size: 18px;"></div>
 	<ul>
-	<li><input type="checkbox" class="sum" name="checkbox" id="margarita" value="margarita" calories="200" data-toggle="checkbox">
-		  <label for="margarita"><img src="images/margarita.jpg"></label>
+	<li><input type="checkbox" name="selectedCalories" value="margarita" id="selectedCalories_0" onChange="getTotals()" data-toggle="checkbox">
+		  <label for="selectedCalories_0"><img src="images/margarita.jpg"></label>
 		  <p>Margarita: 200 Calories per Serving</p>
 		</li>
-		<li><input type="checkbox"   name="checkbox" id="shrimp" value="shrimp" calories="99" data-toggle="checkbox">
-		  <label for="shrimp"><img src="images/shrimp.jpeg"></label>
+		<li><input type="checkbox" name="selectedCalories"  value="shrimp" id="selectedCalories_1" onChange="getTotals()" data-toggle="checkbox">
+		  <label for="selectedCalories_1"><img src="images/shrimp.jpeg"></label>
 		  <p>Shrimp: 99 Calories per Serving</p>
 		</li>
-		<li><input type="checkbox" id="sweettea" name="checkbox" value="sweettea" calories="91" data-toggle="checkbox">
-		  <label for="sweettea"><img src="images/sweettea.jpg"></label>
+		<li><input type="checkbox" name="selectedCalories" value="sweettea" id="selectedCalories_2" onChange="getTotals()" data-toggle="checkbox">
+		  <label for="selectedCalories_2"><img src="images/sweettea.jpg"></label>
 		  <p>Sweet Tea: 91 Calories per Serving</p>
 		</li>
-		<li><input type="checkbox"   name="checkbox" id="ribs" value="ribs" calories="299" data-toggle="checkbox">
-		<label for="ribs"><img src="images/ribs.jpg"></label>
+		<li><input type="checkbox" name="selectedCalories" value="ribs" id="selectedCalories_3" onChange="getTotals()" data-toggle="checkbox">
+		<label for="selectedCalories_3"><img src="images/ribs.jpg"></label>
 		  <p>Ribs: 299 Calories per Serving</p>
 		</li>
-		<li><input type="checkbox"   name="checkbox" id="burger" value="burger" calories="354" data-toggle="checkbox">
-			<label for="burger"><img src="images/picture1.jpg"></label>
+		<li><input type="checkbox" name="selectedCalories" value="burger" id="selectedCalories_4" onChange="getTotals()" data-toggle="checkbox">
+			<label for="selectedCalories_4"><img src="images/picture1.jpg"></label>
 			<p>Burger: 354 Calories per Serving</p>
 		  </li>
-		  <li><input type="checkbox"   name="checkbox" id="pizza" value="pizza" calories="285" data-toggle="checkbox">
-			<label for="pizza"><img src="images/picture2.jpg"></label>
+		  <li><input type="checkbox" name="selectedCalories" value="pizza" id="selectedCalories_5" onChange="getTotals()" data-toggle="checkbox">
+			<label for="selectedCalories_5"><img src="images/picture2.jpg"></label>
 			<p>Pizza: 285 Calories per Serving</p>
 		  </li>
-		  <li><input type="checkbox"  name="checkbox" id="brisket" value="brisket" calories="270" data-toggle="checkbox">
-			<label for="brisket"><img src="images/smokedbrisket.jpg"></label>
+		  <li><input type="checkbox" name="selectedCalories" value="brisket" id="selectedCalories_6" onChange="getTotals()" data-toggle="checkbox">
+			<label for="selectedCalories_6"><img src="images/smokedbrisket.jpg"></label>
 			<p>Brisket: 270 Calories per Serving</p>
 		  </li>
-		  <li><input type="checkbox"   name="checkbox" id="corona" value="corona" calories="270" data-toggle="checkbox">
-			<label for="corona"><img src="images/corona.jpg"></label>
+		  <li><input type="checkbox" name="selectedCalories"  value="corona" id="selectedCalories_7" onChange="getTotals()" data-toggle="checkbox">
+			<label for="selectedCalories_7"><img src="images/corona.jpg"></label>
 			<p>Corona: 270 Calories per Serving</p>
 		  </li>
-		  <li><input type="checkbox"  name="checkbox" id="coke" value="coke" calories="140" data-toggle="checkbox">
-			<label for="coke"><img src="images/coke.jpg"></label>
+		  <li><input type="checkbox" name="selectedCalories"  value="coke" id="selectedCalories_8" onChange="getTotals()" data-toggle="checkbox">
+			<label for="selectedCalories_8"><img src="images/coke.jpg"></label>
 			<p>Coke: 140 Calories per Serving</p>
 		  </li>
 	  </ul>
-	</div>
-	<p>Calories consumed: </p>
-	<input type="text" id="total" value="0"  />
+	</form>
 </section>
     
 <td align=center>
@@ -224,7 +223,7 @@ BAC Analysis
 <table border=4>
 <tr>
 
-</form>
+</form>
 </div>
 </td>		
             
