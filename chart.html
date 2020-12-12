@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<title>LimitTrack</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <link rel= "calculator" href= "caloriecalculator.js" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.css">
+  
+</head>
+<ul  class="nav"> 
+  <li><a href="index.html">Home</a></li>
+  <!-- <li><a href="UserHistory.html">User History </a></li> -->
+  
+  <li><a href="login.html">Log Out </a><li>
+  <li><a href="chart.html">Chart </a><li>
+</ul>
+<body>
+    <section id="banner">
+      <canvas id="myChart" width="400" height="400" class="chartjs-render-monitor" style="display: block; width: 400px; height: 400px;"></canvas>
+        
+   </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+
+<script>
+    
+    Chart.defaults.global.defaultFontColor = 'white';
+Chart.defaults.global.defaultFontSize = 20;
+
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+     
+    type: 'pie',
+    data: {
+        labels: ['whiskey','heineken','whiteclaw','corona','budlight','vodka'],
+        
+         
+        datasets: [{
+          
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 1.0)',
+                'rgba(54, 162, 235, 1.0)',
+                'rgba(255, 206, 86, 1.0)',
+                'rgba(75, 192, 192, 1.0)',
+                'rgba(153, 102, 255, 1.0)',
+                'rgba(255, 159, 64, 1.0)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 2
+        }]
+    },
+    options: {
+       maintainAspectRatio: false,
+    }
+});
+</script>
+
+</body>

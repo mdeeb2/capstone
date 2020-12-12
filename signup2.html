@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>logSign</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src= "caloriecalculator.js" /></script>
+</head>
+<ul  class="nav"> 
+  
+  <!-- <li><a href="UserHistory.html">User History </a></li> -->
+  <li><a href="login.html">Login</a></li>
+  
+  
+</ul>
+	<section id="banner">
+<body>
+    <div class="inner split">
+      <form action="/register" method="POST"> 
+        <input type="text" name="username" 
+            placeholder="username"> 
+        <input type="password" name="password" 
+            placeholder="password"> 
+        <button>Submit</button> 
+    </form> 
+    <form action="/login" method="POST"> 
+      <input type="text" name="username"
+        placeholder="username"> 
+      <input type="password" name="password" 
+        placeholder="password"> 
+      <button>login</button> 
+    </form> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("#signup-form").submit(function () {
+        var nm1 = $("#name1").val();
+        var ps1 = $("#pass1").val();
+        localStorage.setItem("n1", nm1);
+        localStorage.setItem("p1", ps1);
+
+      });
+
+      $("#login-form").submit(function () {
+        var enteredName = $("#name2").val();
+        var enteredPass = $("#pass2").val();
+
+        var storedName = localStorage.getItem("n1");
+        var storedPass = localStorage.getItem("p1");
+
+        if (enteredName == storedName && enteredPass == storedPass) {
+      
+      window.open('index.html');
+    }
+        else {
+          alert("Username and Password do not match!");
+        }
+
+      });
+
+    });
+  </script>
+</body>
+</section>
+<footer id="footer">
+				<div class="disclaimer">
+				        DISCLAIMER
+The BAC calculator is meant for educational purposes only. The BAC calculator and information generated from it is not intended to replace the medical advice of your doctor or health care provider and should not be relied upon; nor do the BAC calculator or information generated from it constitute legal advice. Please consult your healthcare provider for advice about a specific medical condition and legal counsel for any legal questions. There is no blood alcohol calculator that is 100% accurate because of the numerous factors and complexities relating to alcohol consumption by of different individuals. In addition to the gender, body weight and amount of alcohol consumed in a time period, blood alcohol content of any individual person is influenced by that person’s metabolism, health issues, medications taken, history of alcohol consumption and the amount of food and non-alcoholic beverages eaten before or during alcohol consumption, among other factors. The best that can be done is a rough estimation of the BAC level based on known inputs.
+
+Above all: If you’ve been drinking, please let someone who hasn’t been drive.
+				</div>
+			</footer>
+
+</html>
