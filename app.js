@@ -1,96 +1,40 @@
-var express = require("express"), 
-	mongoose = require("mongoose"), 
-	passport = require("passport"), 
-	bodyParser = require("body-parser"), 
-	LocalStrategy = require("passport-local"), 
-	passportLocalMongoose = 
-		require("passport-local-mongoose"), 
-	User = require("./models/user"); 
+const express = require("express");
+const mongoose = require("mongoose");
+const morgan = require("morgan");
+const bodyParser = require("body-parser");
 
-mongoose.set('useNewUrlParser', true); 
-mongoose.set('useFindAndModify', false); 
-mongoose.set('useCreateIndex', true); 
-mongoose.set('useUnifiedTopology', true); 
-mongoose.connect("mongodb+srv://capstone:Cap$tone@capstone.0sifx.mongodb.net/test"); 
+const accRoutes = require("./Routes/acroutes");
+const url = "mongodb+srv://capstone:Cap$tone@capstone.0sifx.mongodb.net/Capstone";
 
-var app = express(); 
-app.set("view engine", "ejs"); 
-app.use(bodyParser.urlencoded({ extended: true })); 
+const app = express();
 
-app.use(require("express-session")({ 
-	secret: "Rusty is a dog", 
-	resave: false, 
-	saveUninitialized: false
-})); 
+mongoose.connect(
+  "mongodb+srv://capstone:Cap$tone@capstone.0sifx.mongodb.net/Capstone",
+  { useNewUrlParser: true, useUnifiedTopology: true }
+);
 
-app.use(passport.initialize()); 
-app.use(passport.session()); 
+const db = mongoose.connection;
+db.on("error", (err) => {
+  console.log(err);
+});
 
-passport.use(new LocalStrategy(User.authenticate())); 
-passport.serializeUser(User.serializeUser()); 
-passport.deserializeUser(User.deserializeUser()); 
+db.once("open", () => {
+  console.log("Database Connection Establishment!");
+});
 
-//===================== 
-// ROUTES 
-//===================== 
+app.use("/", express.static("public"));
+app.use(morgan("dev"));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-// Showing home page 
-app.get("/", function (req, res) { 
-	res.render("home"); 
-}); 
+const PORT = process.env.PORT ||4200;
+app.get("/", function (req, res, next) {
+  res.send("Hello world");
+});
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
 
-// Showing secret page 
-app.get("/chart", isLoggedIn, function (req, res) { 
-	res.render("chart"); 
-}); 
+app.use("/", accRoutes);
 
-// Showing register form 
-app.get("/signup2", function (req, res) { 
-	res.render("signup2"); 
-}); 
 
-// Handling user signup 
-app.post("/signup2", function (req, res) { 
-	var username = req.body.username 
-	var password = req.body.password 
-	User.register(new User({ username: username }), 
-			password, function (err, user) { 
-		if (err) { 
-			console.log(err); 
-			return res.render("register"); 
-		} 
-
-		passport.authenticate("local")( 
-			req, res, function () { 
-			res.render("secret"); 
-		}); 
-	}); 
-}); 
-
-//Showing login form 
-app.get("/login", function (req, res) { 
-	res.render("login"); 
-}); 
-
-//Handling user login 
-app.post("/login", passport.authenticate("local", { 
-	successRedirect: "/chart", 
-	failureRedirect: "/login"
-}), function (req, res) { 
-}); 
-
-//Handling user logout 
-app.get("/logout", function (req, res) { 
-	req.logout(); 
-	res.redirect("/"); 
-}); 
-
-function isLoggedIn(req, res, next) { 
-	if (req.isAuthenticated()) return next(); 
-	res.redirect("/login"); 
-} 
-
-var port = process.env.PORT || 3000; 
-app.listen(port, function () { 
-	console.log("Server Has Started!"); 
-}); 
