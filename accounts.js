@@ -16,10 +16,10 @@ password: hashedPass
 })
 user.save()
 .then(user => {
-    //res.json({message: 'Thank you for registering!'})
+   
     return res.redirect('./login.html')
 })
-.catch(error => { res.json({ message: 'Error occurred'})})
+.catch(error => { res.json({ message: 'Error'})})
   })
 
 }
@@ -41,11 +41,11 @@ User.findOne({$or: [{username: username}]})
              if(result){ 
              let token = jwt.sign({username: user.username}, 'verySecretValue' , {expiresIn: '10m'})
              res.redirect('./chart.html')
-             }else{res.json({message: 'Password is wrong Please go back and try again'})}
+             }else{res.json({message: 'Password is incorrect! Please go back and try again'})}
              }) 
     } else{
 res.json({
-    message: "user not found please go back and sign up"
+    message: "user does not exit! please go back and sign up :)"
 })
 
     }
