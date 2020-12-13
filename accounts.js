@@ -40,7 +40,7 @@ User.findOne({$or: [{username: username}]})
                 }
              if(result){ 
              let token = jwt.sign({username: user.username}, 'verySecretValue' , {expiresIn: '10m'})
-             res.redirect('./chart.html')
+             res.redirect('./index.html')
              }else{res.json({message: 'Password is incorrect! Please go back and try again'})}
              }) 
     } else{

@@ -1,0 +1,295 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<title>LimitTrack</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"> </script>
+    <script src="caloriecalculator.js"> </script>
+
+</head>
+<ul class="nav">
+	<li><a href="index.html">Home</a></li>
+	<!-- <li><a href="UserHistory.html">User History </a></li> -->
+	<li><a href="login.html">Log Out </a><li>
+	
+</ul>
+
+<body>
+
+	<section id="banner">
+		<div class="inner split">
+			<section>
+				<h2 align="center">LimitTrack, The smart way to drink responsibly
+				</h2>
+				<img src="images/logo.png" alt="Logo" width="450" align="center"/>
+                <h2 align="center">Welcome Back
+                    </h2>
+                
+                   
+                    
+
+			</section>
+			<section>
+				<SCRIPT LANGUAGE="JavaScript">
+
+function solveBACmale(form) {
+    var ounces = eval(form.ounces.value); 
+    var percent = eval(form.percent.value);
+    var weight = eval(form.weight.value);
+    var hours = eval(form.hours.value);
+    var male;
+    percent = percent/100;
+
+    var result = ((ounces * percent * 5.14) / ((weight * .68 ) - (hours * 0.015)));
+    if (result < 0) {
+        message = "There is a negligible amount of alcohol in your system.  You are not legally intoxicated.";
+        result = "-- neglible amount --";
+    }
+    else {
+        if (result == "NaN")
+            mesage = "Please try again."; 
+        if (result > 0.08) 
+            message = "In MOST and possibly ALL states you would be considered intoxicated and arrested for DUI.";
+        if (result < 0.08)
+            message = "You are not legally intoxicated";
+    }
+    form.message.value = message;
+    form.bacamount.value = Math.round(result * 100) / 100 + " %";
+}
+function solveBACfemale(form) {
+    var ounces = eval(form.ounces.value);
+    var percent = eval(form.percent.value);
+    var weight = eval(form.weight.value);
+    var hours = eval(form.hours.value);
+    var female;
+    percent = percent/100;
+   
+    var result = ((ounces * percent * 5.14) / ((weight * .55 ) - (hours * 0.015)));
+    if (result < 0) {
+        message = "There is a negligible amount of alcohol in your system.  You are not legally intoxicated.";
+        result = "-- neglible amount --";
+    }
+    else {
+        if (result == "NaN")
+            mesage = "Please try again."; 
+        if (result > 0.08) 
+            message = "In MOST and possibly ALL states you would be considered intoxicated and arrested for DUI.";
+        if (result < 0.08)
+            message = "You are not legally intoxicated";
+    }
+    form.message.value = message;
+    form.bacamount.value = Math.round(result * 100) / 100 + " %";
+}
+
+				</script>
+				<center>
+
+<table>
+<tr>
+<td>
+<ul>
+<li align=center size=8> Using this calculator please input the below parameters. Please drink responsibly.</li>
+<br>
+<li align=center size=12 >typical drink sizes<br>
+
+(Beer ~ 12 oz. Wine Glass  ~ 4 oz.  1 Shot ~ 1.5 oz)</li>
+<li align=center size=12 >percentage of alcohol by drink type<br>
+(Beer ~ 4-4.5%  Wine ~ 15-20%  1 Shot ~ 30-50%)</li>
+
+</ul>
+</td>
+</tr>
+</table>
+
+<form method=post name=bacform>
+<table border=4>
+<tr>
+<td align=center>
+Fluid Ounces Consumed
+</td>
+<td align=center>
+<input type=text name=ounces size=6>
+</td>
+<td align=center>
+Percent Alcohol
+</td>
+<td align=center>
+<input type=text name=percent size=6>
+</td>
+</tr>
+<tr>
+<td align=center>
+Your Weight (lbs)
+</td>
+<td align=center>
+<input type=text name=weight size=6>
+</td>
+<td align=center>
+Hours Consuming Drink
+</td>
+<td align=center>
+<input type=text name=hours size=6>
+</td>
+</tr>
+<tr>
+<td colspan=4 align=center>
+<input type=button name=male value="Select if Male" onClick="javascript:solveBACmale(this.form)">
+
+</td>
+</tr>
+<tr>
+
+<td colspan=4 align=center>
+<input type=button name=female value="Select if Female" onClick="javascript:solveBACfemale(this.form)">
+</td>
+</tr>
+<tr>
+<td align=center>
+BAC Percentage
+</td>
+<td colspan=3 align=center>
+<input type=text name=bacamount size=21>
+</td>
+</tr>
+<tr>
+<td align=center>
+BAC Analysis
+</td>
+<td colspan=3 align=center>
+<textarea name=message rows=3 cols=35 wrap=virtual></textarea>
+</td>
+</tr>
+</table>
+</form>
+</center>
+
+					</section>
+				</div>
+			</section>
+
+			<section>
+	<form id="caloriesConsumed">
+        <div id="totalCalories" style="color: purple; text-align: center; font-size: 18px;"></div>
+	<ul>
+	<li><input type="checkbox" name="selectedCalories" value="margarita" id="selectedCalories_0" onChange="getTotals()" data-toggle="checkbox">
+		  <label for="selectedCalories_0"><img src="images/margarita.jpg"></label>
+		  <p>Margarita: 200 Calories per Serving</p>
+		</li>
+		<li><input type="checkbox" name="selectedCalories"  value="shrimp" id="selectedCalories_1" onChange="getTotals()" data-toggle="checkbox">
+		  <label for="selectedCalories_1"><img src="images/shrimp.jpeg"></label>
+		  <p>Shrimp: 99 Calories per Serving</p>
+		</li>
+		<li><input type="checkbox" name="selectedCalories" value="sweettea" id="selectedCalories_2" onChange="getTotals()" data-toggle="checkbox">
+		  <label for="selectedCalories_2"><img src="images/sweettea.jpg"></label>
+		  <p>Sweet Tea: 91 Calories per Serving</p>
+		</li>
+		<li><input type="checkbox" name="selectedCalories" value="ribs" id="selectedCalories_3" onChange="getTotals()" data-toggle="checkbox">
+		<label for="selectedCalories_3"><img src="images/ribs.jpg"></label>
+		  <p>Ribs: 299 Calories per Serving</p>
+		</li>
+		<li><input type="checkbox" name="selectedCalories" value="burger" id="selectedCalories_4" onChange="getTotals()" data-toggle="checkbox">
+			<label for="selectedCalories_4"><img src="images/picture1.jpg"></label>
+			<p>Burger: 354 Calories per Serving</p>
+		  </li>
+		  <li><input type="checkbox" name="selectedCalories" value="pizza" id="selectedCalories_5" onChange="getTotals()" data-toggle="checkbox">
+			<label for="selectedCalories_5"><img src="images/picture2.jpg"></label>
+			<p>Pizza: 285 Calories per Serving</p>
+		  </li>
+		  <li><input type="checkbox" name="selectedCalories" value="brisket" id="selectedCalories_6" onChange="getTotals()" data-toggle="checkbox">
+			<label for="selectedCalories_6"><img src="images/smokedbrisket.jpg"></label>
+			<p>Brisket: 270 Calories per Serving</p>
+		  </li>
+		  <li><input type="checkbox" name="selectedCalories"  value="corona" id="selectedCalories_7" onChange="getTotals()" data-toggle="checkbox">
+			<label for="selectedCalories_7"><img src="images/corona.jpg"></label>
+			<p>Corona: 270 Calories per Serving</p>
+		  </li>
+		  <li><input type="checkbox" name="selectedCalories"  value="coke" id="selectedCalories_8" onChange="getTotals()" data-toggle="checkbox">
+			<label for="selectedCalories_8"><img src="images/coke.jpg"></label>
+			<p>Coke: 140 Calories per Serving</p>
+		  </li>
+	  </ul>
+	</form>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+
+	<section id="banner">
+	<canvas id="myChart" width="400" height="400" class="chartjs-render-monitor" style="display: block; width: 400px; height: 400px;"></canvas>
+        </section>
+</section>
+    
+<td align=center>
+<br>
+<br>
+</table>
+<form method=post name=bacform>
+<table border=4>
+<tr>
+
+</form>
+</div>
+</td>		
+            
+
+			</section>
+
+			<footer id="footer">
+				<div class="disclaimer">
+				        DISCLAIMER
+The BAC calculator is meant for educational purposes only. The BAC calculator and information generated from it is not intended to replace the medical advice of your doctor or health care provider and should not be relied upon; nor do the BAC calculator or information generated from it constitute legal advice. Please consult your healthcare provider for advice about a specific medical condition and legal counsel for any legal questions. There is no blood alcohol calculator that is 100% accurate because of the numerous factors and complexities relating to alcohol consumption by of different individuals. In addition to the gender, body weight and amount of alcohol consumed in a time period, blood alcohol content of any individual person is influenced by that person’s metabolism, health issues, medications taken, history of alcohol consumption and the amount of food and non-alcoholic beverages eaten before or during alcohol consumption, among other factors. The best that can be done is a rough estimation of the BAC level based on known inputs.
+
+Above all: If you’ve been drinking, please let someone who hasn’t been drive.
+				</div>
+			</footer>
+
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+
+			<script>
+				
+				Chart.defaults.global.defaultFontColor = 'white';
+			Chart.defaults.global.defaultFontSize = 20;
+			
+			var ctx = document.getElementById('myChart').getContext('2d');
+			var myChart = new Chart(ctx, {
+				 
+				type: 'pie',
+				data: {
+					labels: ['whiskey','heineken','whiteclaw','corona','budlight','vodka'],
+					
+					 
+					datasets: [{
+					  
+						data: [12, 19, 3, 5, 2, 3],
+						backgroundColor: [
+							'rgba(255, 99, 132, 1.0)',
+							'rgba(54, 162, 235, 1.0)',
+							'rgba(255, 206, 86, 1.0)',
+							'rgba(75, 192, 192, 1.0)',
+							'rgba(153, 102, 255, 1.0)',
+							'rgba(255, 159, 64, 1.0)'
+						],
+						borderColor: [
+							'rgba(255, 99, 132, 1)',
+							'rgba(54, 162, 235, 1)',
+							'rgba(255, 206, 86, 1)',
+							'rgba(75, 192, 192, 1)',
+							'rgba(153, 102, 255, 1)',
+							'rgba(255, 159, 64, 1)'
+						],
+						borderWidth: 2
+					}]
+				},
+				options: {
+				   maintainAspectRatio: false,
+				}
+			});
+			</script>
+	</body>
+</html>
