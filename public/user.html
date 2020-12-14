@@ -226,7 +226,7 @@ BAC Analysis
 		  <input type="submit" value="Submit" formmethod="POST">
 		</form>
 
-	<canvas id="myChart" width="400" height="400" class="chartjs-render-monitor" style="display: block; width: 400px; height: 400px;"></canvas>
+	<canvas id="myChart" width="400" height="400" ></canvas>
         </section>
 </section>
     
@@ -276,7 +276,8 @@ Above all: If you’ve been drinking, please let someone who hasn’t been drive
                 }
             ],
             labels: []
-		};  function createChart() {
+		};  
+		function createChart() {
             var ctx = document.getElementById("myChart").getContext("2d");
             var myPieChart = new Chart(ctx, {
                 type: 'pie',
