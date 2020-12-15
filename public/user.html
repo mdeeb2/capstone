@@ -44,7 +44,8 @@ function solveBACmale(form) {
     var male;
     percent = percent/100;
 
-    var result = ((ounces * percent * 5.14) / ((weight * .68 ) - (hours * 0.015)));
+    var result = ((ounces * percent * 5.14) / ((weight * .73 ))) - (hours * 0.015);
+
     if (result < 0) {
         message = "There is a negligible amount of alcohol in your system.  You are not legally intoxicated.";
         result = "-- neglible amount --";
@@ -53,12 +54,12 @@ function solveBACmale(form) {
         if (result == "NaN")
             mesage = "Please try again."; 
         if (result > 0.08) 
-            message = "In MOST and possibly ALL states you would be considered intoxicated and arrested for DUI.";
+            message = "In MOST and possibly ALL states you would be considered intoxicated and arrested for DUI.";
         if (result < 0.08)
             message = "You are not legally intoxicated";
     }
     form.message.value = message;
-    form.bacamount.value = Math.round(result * 100) / 100 + " %";
+    form.bacamount.value = Math.round(result * 10000) / 10000 + " %";
 }
 function solveBACfemale(form) {
     var ounces = eval(form.ounces.value);
@@ -68,7 +69,7 @@ function solveBACfemale(form) {
     var female;
     percent = percent/100;
    
-    var result = ((ounces * percent * 5.14) / ((weight * .55 ) - (hours * 0.015)));
+    var result = ((ounces * percent * 5.14) / ((weight * .66 ))) - (hours * 0.015);
     if (result < 0) {
         message = "There is a negligible amount of alcohol in your system.  You are not legally intoxicated.";
         result = "-- neglible amount --";
@@ -77,12 +78,12 @@ function solveBACfemale(form) {
         if (result == "NaN")
             mesage = "Please try again."; 
         if (result > 0.08) 
-            message = "In MOST and possibly ALL states you would be considered intoxicated and arrested for DUI.";
+            message = "In MOST and possibly ALL states you would be considered intoxicated and arrested for DUI.";
         if (result < 0.08)
             message = "You are not legally intoxicated";
     }
     form.message.value = message;
-    form.bacamount.value = Math.round(result * 100) / 100 + " %";
+    form.bacamount.value = Math.round(result * 10000) / 10000 + " %";
 }
 
 				</script>
